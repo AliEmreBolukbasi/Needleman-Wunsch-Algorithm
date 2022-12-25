@@ -50,7 +50,7 @@ namespace Biyoİnformatik_1
                 try //hata yakalama
                 {
                     int eslesme = Convert.ToInt32(textBox3.Text); //MATCHT
-                    int esleme_olmadı = Convert.ToInt32(textBox4.Text); //DiSSMATCHT
+                    int esleme_olmadi = Convert.ToInt32(textBox4.Text); //DiSSMATCHT
                     int bosluk = Convert.ToInt32(textBox5.Text); //GAP
                     int[,] sonuc = new int[gen_1, gen_2]; //SONUCU DİZİDE TUTLA
                     char[,] izlemeMat = new char[gen_1, gen_2]; //SONUCU YAZDIRMAYI DİZİDE TUTMA
@@ -73,10 +73,10 @@ namespace Biyoİnformatik_1
                             if (textBox2.Text.Substring(j - 1, 1) == textBox1.Text.Substring(i - 1, 1)) //j-1 den 1 kadar al i-1 den j ye kadar al birbirine eşit ise
                                 puanDiag = sonuc[i - 1, j - 1] + eslesme; //puan'a sonuc i ve j değerlerini ve eşleşmeyi ekle
                             else
-                                puanDiag = sonuc[i - 1, j - 1] + esleme_olmadı; //değilse eşleşme olmadıyı ekle
+                                puanDiag = sonuc[i - 1, j - 1] + esleme_olmadi; //değilse eşleşme olmadıyı ekle
                             int puanSol = sonuc[i, j - 1] + bosluk;
-                            int puanYukarı = sonuc[i - 1, j] + bosluk; //yukarı'ya sonuc un i-1 ve j kısmına boşlukla beraber ekle
-                            int maxPuan = Math.Max(Math.Max(puanDiag, puanSol), puanYukarı);
+                            int puanYukari = sonuc[i - 1, j] + bosluk; //yukarı'ya sonuc un i-1 ve j kısmına boşlukla beraber ekle
+                            int maxPuan = Math.Max(Math.Max(puanDiag, puanSol), puanYukari);
                             //maksimum puan için puanDiag ve puan solun maxini al ve sonra çıkan sonucun puan yukarıdan hangisi yüksek ise onu al
                             sonuc[i, j] = maxPuan; //max puanı sonuca eşitle
                             if (sonuc[i, j] == puanDiag) //şayet sonuç puanDiag ile eşitse
@@ -89,7 +89,7 @@ namespace Biyoİnformatik_1
                             {
                                 izlemeMat[i, j] = 'S';
                             }
-                            else if (sonuc[i, j] == puanYukarı) //yukarıya eşitse Y
+                            else if (sonuc[i, j] == puanYukari) //yukarıya eşitse Y
                             {
                                 izlemeMat[i, j] = 'Y';
                             }
@@ -106,7 +106,7 @@ namespace Biyoİnformatik_1
                 }
             }
         }
-        public string tersYazdırma(string giris) //ters yazdırma metodu
+        public string tersYazdirma(string giris) //ters yazdırma metodu
         {
             char[] dizi = giris.ToCharArray();
             Array.Reverse(dizi); //ters çevir
@@ -162,8 +162,8 @@ namespace Biyoİnformatik_1
                 }
 
             }
-            label7.Text = tersYazdırma(hizalamaA); //yazdırma
-            label8.Text = tersYazdırma(hizalamaB); //Yazdırma
+            label7.Text = tersYazdirma(hizalamaA); //yazdırma
+            label8.Text = tersYazdirma(hizalamaB); //Yazdırma
         }
     }
 }
